@@ -472,9 +472,10 @@ export default function Dossiers() {
             <Button
               type="submit"
               disabled={saving}
-              className="border-0 bg-white text-slate-900 shadow-sm hover:bg-white/90"
+              size="default"
+              className="h-10 shrink-0 border-0 bg-white text-slate-900 shadow-md ring-1 ring-white/20 hover:bg-white/95"
             >
-              <FolderOpen size={16} className="mr-2" />
+              <FolderOpen size={16} className="mr-2" aria-hidden />
               {saving ? 'Création...' : 'Nouveau dossier'}
             </Button>
           </form>
@@ -555,37 +556,44 @@ export default function Dossiers() {
             />
           </div>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={exporting}
-            onClick={() => void handleExport('csv')}
+        <div className="space-y-1 xl:ml-auto">
+          <span className="block text-xs font-medium text-muted-foreground">Exporter</span>
+          <div
+            className="inline-flex divide-x divide-border overflow-hidden rounded-lg border border-border bg-card shadow-sm"
+            role="group"
+            aria-label="Exporter la liste"
           >
-            <Download className="mr-1.5 h-4 w-4" />
-            CSV
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={exporting}
-            onClick={() => void handleExport('xlsx')}
-          >
-            <Download className="mr-1.5 h-4 w-4" />
-            Excel
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={exporting}
-            onClick={() => void handleExport('pdf')}
-          >
-            <Download className="mr-1.5 h-4 w-4" />
-            PDF
-          </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              disabled={exporting}
+              onClick={() => void handleExport('csv')}
+              className="h-10 rounded-none px-4 font-medium text-foreground shadow-none hover:bg-muted/80"
+            >
+              <Download className="h-4 w-4" aria-hidden />
+              CSV
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              disabled={exporting}
+              onClick={() => void handleExport('xlsx')}
+              className="h-10 rounded-none px-4 font-medium text-foreground shadow-none hover:bg-muted/80"
+            >
+              <Download className="h-4 w-4" aria-hidden />
+              Excel
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              disabled={exporting}
+              onClick={() => void handleExport('pdf')}
+              className="h-10 rounded-none px-4 font-medium text-foreground shadow-none hover:bg-muted/80"
+            >
+              <Download className="h-4 w-4" aria-hidden />
+              PDF
+            </Button>
+          </div>
         </div>
       </div>
 
