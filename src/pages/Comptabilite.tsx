@@ -708,27 +708,27 @@ export default function Comptabilite() {
             type="button"
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-white"
+            className="border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:text-slate-900"
             onClick={() => void downloadExport('/exports/payments.csv', 'paiements.csv')}
           >
-            <Table size={14} className="mr-1.5" />
+            <Table size={14} className="mr-1.5 shrink-0" />
             CSV paiements
           </Button>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-white"
+            className="border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:text-slate-900"
             onClick={() => void downloadExport('/exports/expenses.csv', 'depenses.csv')}
           >
-            <Table size={14} className="mr-1.5" />
+            <Table size={14} className="mr-1.5 shrink-0" />
             CSV dépenses
           </Button>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-white"
+            className="border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:text-slate-900"
             onClick={() => void downloadExport('/exports/accounting.xlsx', 'comptabilite.xlsx')}
           >
             Excel
@@ -737,7 +737,7 @@ export default function Comptabilite() {
             type="button"
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-white"
+            className="border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:text-slate-900"
             onClick={() => void downloadExport('/exports/accounting.pdf', 'rapport.pdf')}
           >
             PDF rapport
@@ -747,30 +747,30 @@ export default function Comptabilite() {
       {tab === 'payments' && (
         <Button
           type="button"
-          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-white/90"
+          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-slate-50 hover:text-slate-900"
           onClick={openCreatePayment}
         >
-          <Plus size={16} className="mr-2" />
+          <Plus size={16} className="mr-2 shrink-0" />
           Nouveau paiement
         </Button>
       )}
       {tab === 'expenses' && (
         <Button
           type="button"
-          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-white/90"
+          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-slate-50 hover:text-slate-900"
           onClick={openCreateExpense}
         >
-          <Plus size={16} className="mr-2" />
+          <Plus size={16} className="mr-2 shrink-0" />
           Nouvelle dépense
         </Button>
       )}
       {tab === 'invoices' && (
         <Button
           type="button"
-          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-white/90"
+          className="border-0 bg-white text-slate-900 shadow-sm hover:bg-slate-50 hover:text-slate-900"
           onClick={openCreateInvoice}
         >
-          <Plus size={16} className="mr-2" />
+          <Plus size={16} className="mr-2 shrink-0" />
           Nouvelle facture
         </Button>
       )}
@@ -1101,7 +1101,7 @@ export default function Comptabilite() {
       </Dialog>
 
       <Tabs value={tab} onValueChange={setTab} className="w-full">
-        <TabsList className="flex flex-wrap h-auto gap-1 bg-slate-100/90 p-1">
+        <TabsList className="grid h-auto w-full grid-cols-2 gap-1 bg-slate-100/90 p-1 sm:grid-cols-4">
           <TabsTrigger value="overview">Synthèse</TabsTrigger>
           <TabsTrigger value="payments">Paiements</TabsTrigger>
           <TabsTrigger value="expenses">Dépenses</TabsTrigger>

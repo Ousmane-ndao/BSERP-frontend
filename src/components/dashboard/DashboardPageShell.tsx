@@ -33,7 +33,10 @@ export function DashboardPageShell({
           </h1>
           <p className={`mt-0.5 text-white/75 ${compact ? 'text-xs' : 'text-sm'}`}>{subtitle}</p>
         </div>
-        {headerActions ? <div className="shrink-0">{headerActions}</div> : null}
+        {headerActions ? (
+          /** Réinitialise la couleur du texte : le hero impose `text-white`, sinon boutons blancs = libellés invisibles */
+          <div className="shrink-0 text-slate-900 [&_button]:text-slate-900 [&_svg]:text-slate-700">{headerActions}</div>
+        ) : null}
       </header>
 
       <div className={`dashboard-strip ${compact ? 'dashboard-strip--compact' : ''}`}>
